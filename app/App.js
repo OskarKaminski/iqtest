@@ -4,6 +4,7 @@ import {store} from './store';
 import {setTestCases} from './Actions/actions'
 import {TestCase} from 'C/TestCase/TestCase'
 import {Progress} from 'C/Progress/Progress'
+import {ThreeTestsHolder} from 'C/ThreeTestsHolder/ThreeTestsHolder'
 
 const mapStateToProps = ({testCases, currentTestCase}) =>
     ({testCases, currentTestCase});
@@ -40,21 +41,33 @@ class App extends React.Component {
                     {label: 12},
                     {label: 8}
                 ]
+            },
+            {
+                number: 3,
+                question: {
+                    ctx: '3, 5, 9, 17,',
+                    text: 'What is the next number?'
+                },
+                answers: [
+                    {label: 40},
+                    {label: 20},
+                    {label: 33},
+                    {label: 54}
+                ]
             }]);
     }
 
-    renderTestCase = (testCases) => {
-        const testCaseIndex = this.props.currentTestCase - 1
-        if(!testCases[testCaseIndex]) return;
-
-        return <TestCase {...testCases[testCaseIndex]}/>
+    renderTestCase = () => {
+        return this.props.testCases[0] ?
+            <ThreeTestsHolder tests={this.props.testCases}
+                              current={this.props.currentTestCase}/> : null
     }
 
     render = () => (
         <div>
             <Progress questionNo={this.props.currentTestCase}
                       questionsQty={15}/>
-            {this.renderTestCase(this.props.testCases)}
+            {this.renderTestCase()}
         </div>
     )
 }
