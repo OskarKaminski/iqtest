@@ -5,10 +5,8 @@ export default [{
     },
     answers: {
         one: 3,
-        two: 6,
         three: 19,
-        four: 4,
-        five: "?"
+        four: 4
     }
 },
     {
