@@ -1,0 +1,12 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "313081410347.dkr.ecr.eu-central-1.amazonaws.com/ems-frontend",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "9080"
+    }
+  ]
+}

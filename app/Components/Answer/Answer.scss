@@ -1,0 +1,16 @@
+.answer {
+  border: 1px solid darkgray;
+  padding: 4px;
+  text-align: center;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &__correct {
+    background-color: #ccffcc;
+  }
+
+  &__incorrect {
+    background-color: #ffcccc;
+  }
+}
