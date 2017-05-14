@@ -1,15 +1,15 @@
 export default [{
     number: 1,
     question: {
-        ctx: '1, 2, 3, 4, 5,',
-        text: 'What is the next number?'
+        text: 'What number replaces the question mark?'
     },
-    answers: [
-        {label: 3},
-        {label: 10},
-        {label: 6},
-        {label: 100}
-    ]
+    answers: {
+        one: 3,
+        two: 6,
+        three: 19,
+        four: 4,
+        five: "?"
+    }
 },
     {
         number: 2,
