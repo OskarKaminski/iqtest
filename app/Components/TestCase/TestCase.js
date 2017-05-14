@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import './TestCase.scss'
 import {Answer} from 'C/Answer/Answer'
 import {Question} from 'C/Question/Question'
@@ -21,3 +21,9 @@ export const TestCase = (props) => (
         </div>
     </div>
 )
+
+TestCase.propTypes = {
+    question: PropTypes.object.isRequired,
+    answers: PropTypes.array.isRequired,
+    number: PropTypes.number.isRequired
+}

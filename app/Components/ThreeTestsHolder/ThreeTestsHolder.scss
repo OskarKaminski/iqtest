@@ -1,0 +1,12 @@
+.three-tests-holder {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15%;
+
+}
+.holder__item{
+  min-width: 220px;
+  &--previous, &--next{
+    opacity: .3;
+  }
+}
