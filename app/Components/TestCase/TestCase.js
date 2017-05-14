@@ -2,12 +2,7 @@ import React from 'react'
 import './TestCase.scss'
 import {Answer} from 'C/Answer/Answer'
 import {Question} from 'C/Question/Question'
-
-const renderAnswers = (answers) => {
-    return answers.map((answer, key) => (
-        <Answer {...answer} key={key}/>
-    ))
-}
+import {Puzzle} from 'C/Puzzle/Puzzle'
 
 export const TestCase = (props) => (
     <div className="test-case__wrapper">
@@ -17,7 +12,11 @@ export const TestCase = (props) => (
             </div>
 
             <div className="answers">
-                {renderAnswers(props.answers)}
+                <Puzzle one={props.answers.one}
+                        two={props.answers.two}
+                        three={props.answers.three}
+                        four={props.answers.four}
+                        five={props.answers.five}></Puzzle>
             </div>
         </div>
     </div>

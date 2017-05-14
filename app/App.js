@@ -10,42 +10,30 @@ const mapStateToProps = ({testCases, currentTestCase}) =>
 
 @connect(mapStateToProps, {setTestCases})
 class App extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
-    componentDidMount () {
+    componentDidMount() {
         this.props.setTestCases([{
             number: 1,
             question: {
                 ctx: '1, 2, 3, 4, 5,',
                 text: 'What is the next number?'
             },
-            answers: [
-                {label: 3},
-                {label: 10},
-                {label: 6},
-                {label: 100}
-            ]
-        },
-            {
-                number: 2,
-                question: {
-                    ctx: '2, 4, 6, 8,',
-                    text: 'What is the next number?'
-                },
-                answers: [
-                    {label: 9},
-                    {label: 10},
-                    {label: 12},
-                    {label: 8}
-                ]
-            }]);
+            answers: {
+                one: 3,
+                two: 10,
+                three: 6,
+                four: 100,
+                five: 100
+            }
+        }]);
     }
 
     renderTestCase = (testCases) => {
         const testCaseIndex = this.props.currentTestCase - 1
-        if(!testCases[testCaseIndex]) return;
+        if (!testCases[testCaseIndex]) return;
 
         return <TestCase {...testCases[testCaseIndex]}/>
     }
