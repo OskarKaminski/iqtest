@@ -3,6 +3,12 @@ export const setTestCases = (payload) => ({
     payload
 })
 
-export const nextTestCase = () => ({
+export const nextTestCase = (answer, number) => ({
     type: 'NEXT'
+})
+
+export const setAnswer = (answer, number) => ({
+    type: 'SET_ANSWER',
+    answer,
+    number
 })

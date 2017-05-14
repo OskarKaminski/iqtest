@@ -7,6 +7,16 @@ export const testCases = (state = [], action) => {
     switch (action.type) {
         case 'SET_TEST_CASES':
             return action.payload
+        case 'SET_ANSWER':
+            return state.map((testCase) => {
+                if(testCase.number === action.number){
+                    return {
+                        ...testCase,
+                        answer: action.answer
+                    }
+                }
+                return testCase;
+            })
     }
     return state;
 }

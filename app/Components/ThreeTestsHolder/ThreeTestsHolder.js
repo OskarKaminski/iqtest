@@ -4,15 +4,11 @@ import {TestCase} from 'C/TestCase/TestCase';
 
 const createTestCase = (test) => {
     if (test) {
-        return <TestCase question={test.question}
-                         answers={test.answers}
-                         type={test.type}
-                         number={test.number}/>
+        return <TestCase {...test}/>
     }
 }
 
 export const ThreeTestsHolder = (props) => {
-    console.log(props.current);
     return (
         <div className="three-tests-holder">
             <div className="holder__item holder__item--previous">

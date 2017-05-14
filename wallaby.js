@@ -4,12 +4,12 @@ var wallabyPostprocessor = wallabyWebpack({});
 module.exports = function (wallaby) {
     return {
         files: [
-            {pattern: 'app/**/*.js', load: false},
-            {pattern: 'app/**/*.spec.js', ignore: true}
+            {pattern: 'app/Reducers/**/*.js', load: false},
+            {pattern: 'app/Reducers/**/*.spec.js', ignore: true}
         ],
 
         tests: [
-            {pattern: 'app/**/*.spec.js', load: false}
+            {pattern: 'app/Reducers/**/*.spec.js', load: false}
         ],
 
         compilers: {

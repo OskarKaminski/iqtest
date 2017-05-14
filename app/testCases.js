@@ -5,12 +5,13 @@ export default [{
         ctx: '2, 4, 6, 8,',
         text: 'What is the next number?'
     },
-    answers: [
+    options: [
         {label: 9},
         {label: 10},
         {label: 12},
         {label: 8}
-    ]
+    ],
+    answer: 2
 },
     {
         number: 2,
@@ -18,11 +19,11 @@ export default [{
         question: {
             text: 'What number replaces the question mark?'
         },
-        answers: {
-            one: 3,
-            two: 8,
-            three: 19,
-            four: 4
+        options: {
+            top: 39,
+            left: 13,
+            right: 2,
+            bottom: 6
         }
     },
     {
@@ -31,7 +32,7 @@ export default [{
             ctx: '2, 4, 6, 8,',
             text: 'What is the next number?'
         },
-        answers: [
+        options: [
             {label: 9},
             {label: 10},
             {label: 12},
@@ -44,7 +45,7 @@ export default [{
             ctx: '3, 5, 9, 17,',
             text: 'What is the next number?'
         },
-        answers: [
+        options: [
             {label: 40},
             {label: 20},
             {label: 33},

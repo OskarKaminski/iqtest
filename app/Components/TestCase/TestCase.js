@@ -1,20 +1,16 @@
 import React, {PropTypes} from 'react'
 import './TestCase.scss'
-import {Answer} from 'C/Answer/Answer'
+import {Option} from 'C/Option/Option'
 import {Question} from 'C/Question/Question'
 import {Puzzle} from 'C/Puzzle/Puzzle'
 
-const renderAnswersByType = (answers, type) => {
+const renderAnswersByType = (options, type, answer) => {
     if (type === 'puzzle') {
-        return <Puzzle one={answers.one}
-                two={answers.two}
-                three={answers.three}
-                four={answers.four}
-                five={answers.five}></Puzzle>
+        return <Puzzle {...options} answer={answer}></Puzzle>
     }
     if(type === 'list'){
-        return answers.map((answer, key) => {
-            return <Answer {...answer} key={key}/>
+        return options.map((option, key) => {
+            return <Option {...option} key={key}/>
         })
     }
 }
@@ -27,7 +23,7 @@ export const TestCase = (props) => (
             </div>
 
             <div className="answers">
-                {renderAnswersByType(props.answers, props.type)}
+                {renderAnswersByType(props.options, props.type, props.answer)}
             </div>
         </div>
     </div>
@@ -35,6 +31,9 @@ export const TestCase = (props) => (
 
 TestCase.propTypes = {
     question: PropTypes.object.isRequired,
-    answers: PropTypes.array.isRequired,
+    options: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object
+    ]).isRequired,
     number: PropTypes.number.isRequired
 }
