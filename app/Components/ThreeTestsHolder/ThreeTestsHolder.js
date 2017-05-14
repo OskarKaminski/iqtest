@@ -3,10 +3,11 @@ import './ThreeTestsHolder.scss';
 import {TestCase} from 'C/TestCase/TestCase';
 
 const createTestCase = (test) => {
-    if(test){
+    if (test) {
         return <TestCase question={test.question}
-                  answers={test.answers}
-                  number={test.number}/>
+                         answers={test.answers}
+                         type={test.type}
+                         number={test.number}/>
     }
 }
 

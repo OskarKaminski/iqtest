@@ -17,9 +17,8 @@ export const Puzzle = (props) =>{
                 props.four
             }
             </div>
-            <div className="puzzle__element lastcolumn">{
-                props.five
-            }
+            <div className="puzzle__element lastcolumn">
+                {props.five || <input type="number" placeholder="?"/>}
             </div>
         </div>
     )

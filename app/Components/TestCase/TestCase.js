@@ -4,6 +4,21 @@ import {Answer} from 'C/Answer/Answer'
 import {Question} from 'C/Question/Question'
 import {Puzzle} from 'C/Puzzle/Puzzle'
 
+const renderAnswersByType = (answers, type) => {
+    if (type === 'puzzle') {
+        return <Puzzle one={answers.one}
+                two={answers.two}
+                three={answers.three}
+                four={answers.four}
+                five={answers.five}></Puzzle>
+    }
+    if(type === 'list'){
+        return answers.map((answer, key) => {
+            return <Answer {...answer} key={key}/>
+        })
+    }
+}
+
 export const TestCase = (props) => (
     <div className="test-case__wrapper">
         <div className="test-case">
@@ -12,11 +27,7 @@ export const TestCase = (props) => (
             </div>
 
             <div className="answers">
-                <Puzzle one={props.answers.one}
-                        two={props.answers.two}
-                        three={props.answers.three}
-                        four={props.answers.four}
-                        five={props.answers.five}></Puzzle>
+                {renderAnswersByType(props.answers, props.type)}
             </div>
         </div>
     </div>
