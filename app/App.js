@@ -33,10 +33,7 @@ class App extends React.Component {
             return <ThreeTestsHolder tests={testCases}
                               current={this.props.currentTestCase}/>
         }
-
-
     }
-
 
     render = () => (
         <div>

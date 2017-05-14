@@ -11,16 +11,14 @@ export class Puzzle extends React.Component{
             center: props.answer || '?'
         }
     }
-    
     onChange(e){
         this.setState({
-            center: e.target.value
+            center: +e.target.value
         })
     }
     onEnter(e){
         if(e.keyCode === 13){
-            this.props.setAnswer(this.state.center, 2)
-            this.props.nextTestCase()
+            this.props.onAnswer(this.state.center)
         }
     }
     removeValue(){

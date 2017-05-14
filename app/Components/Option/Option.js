@@ -11,8 +11,7 @@ export class Option extends React.Component {
     }
 
     next = (value) => {
-        this.props.setAnswer(value, 1)
-        this.props.nextTestCase()
+        this.props.onAnswer(value)
     }
 
     render = () => (

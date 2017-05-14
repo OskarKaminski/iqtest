@@ -5,8 +5,7 @@ export default [{
         ctx: '2, 4, 6, 8,',
         text: 'What is the next number?'
     },
-    options: [9, 10, 12, 8],
-    answer: 9
+    options: [9, 10, 12, 8]
 },
     {
         number: 2,
