@@ -23,17 +23,18 @@ class App extends React.Component {
     }
 
     renderTestCase = (testCases) => {
-        return this.props.testCases[0] ?
-            <ThreeTestsHolder tests={testCases}
-                              current={this.props.currentTestCase}/> :
-            <Intro
-                startTest={this.setTestCases}
-            />
-    }
-    renderSummary = () => {
+        if (!this.props.testCases[0]){
+            return <Intro startTest={this.setTestCases}/>
+        }
         if (this.props.currentTestCase > this.props.testCases.length){
             return <Summary/>
         }
+        if (this.props.testCases[0]) {
+            return <ThreeTestsHolder tests={testCases}
+                              current={this.props.currentTestCase}/>
+        }
+
+
     }
 
 
@@ -42,7 +43,6 @@ class App extends React.Component {
             <Progress questionNo={this.props.currentTestCase}
                       questionsQty={this.props.testCases.length}/>
             {this.renderTestCase(this.props.testCases)}
-            {this.renderSummary()}
         </div>
     )
 }
