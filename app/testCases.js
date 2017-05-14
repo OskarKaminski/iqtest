@@ -20,6 +20,7 @@ export default [{
         },
         answers: {
             one: 3,
+            two: 8,
             three: 19,
             four: 4
         }
