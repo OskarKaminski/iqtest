@@ -7,13 +7,14 @@ import {TestCase} from 'C/TestCase/TestCase'
 import {Progress} from 'C/Progress/Progress'
 import {ThreeTestsHolder} from 'C/ThreeTestsHolder/ThreeTestsHolder'
 import {Intro} from 'C/Intro/Intro'
+import {Summary} from 'C/Summary/Summary'
 
 const mapStateToProps = ({testCases, currentTestCase}) =>
     ({testCases, currentTestCase});
 
 @connect(mapStateToProps, {setTestCases})
 class App extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
     }
 
@@ -26,15 +27,22 @@ class App extends React.Component {
             <ThreeTestsHolder tests={testCases}
                               current={this.props.currentTestCase}/> :
             <Intro
-            startTest={this.setTestCases}
+                startTest={this.setTestCases}
             />
     }
+    renderSummary = () => {
+        if (this.props.currentTestCase > this.props.testCases.length){
+            return <Summary/>
+        }
+    }
+
 
     render = () => (
         <div>
             <Progress questionNo={this.props.currentTestCase}
                       questionsQty={this.props.testCases.length}/>
             {this.renderTestCase(this.props.testCases)}
+            {this.renderSummary()}
         </div>
     )
 }
