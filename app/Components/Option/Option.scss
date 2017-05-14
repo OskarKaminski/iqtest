@@ -6,11 +6,7 @@
   border-radius: 5px;
   cursor: pointer;
 
-  &__correct {
-    background-color: #ccffcc;
-  }
-
-  &__incorrect {
-    background-color: #ffcccc;
+  &--checked {
+    border: 2px solid;
   }
 }

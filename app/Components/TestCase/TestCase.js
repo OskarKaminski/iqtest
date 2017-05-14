@@ -10,7 +10,7 @@ const renderAnswersByType = (options, type, answer) => {
     }
     if(type === 'list'){
         return options.map((option, key) => {
-            return <Option {...option} key={key}/>
+            return <Option value={option} answer={answer} key={key}/>
         })
     }
 }
