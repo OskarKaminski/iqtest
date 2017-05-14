@@ -6,6 +6,7 @@ import {setTestCases} from './Actions/actions'
 import {TestCase} from 'C/TestCase/TestCase'
 import {Progress} from 'C/Progress/Progress'
 import {ThreeTestsHolder} from 'C/ThreeTestsHolder/ThreeTestsHolder'
+import {Intro} from 'C/Intro/Intro'
 
 const mapStateToProps = ({testCases, currentTestCase}) =>
     ({testCases, currentTestCase});
@@ -16,14 +17,17 @@ class App extends React.Component {
         super(props);
     }
 
-    componentDidMount () {
+    setTestCases = () => {
         this.props.setTestCases(testCases);
     }
 
     renderTestCase = (testCases) => {
         return this.props.testCases[0] ?
             <ThreeTestsHolder tests={testCases}
-                              current={this.props.currentTestCase}/> : null
+                              current={this.props.currentTestCase}/> :
+            <Intro
+            startTest={this.setTestCases}
+            />
     }
 
     render = () => (
