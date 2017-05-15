@@ -1,10 +1,8 @@
 import createSagaMiddleware from 'redux-saga';
-import {fetchConfigurationSaga} from './Code/saga';
-import {fetchPackagesSaga} from './InsurancePackages/sagas';
+import {fetchHighScores} from './Sagas/highScores';
 
 export const sagaMiddleware = createSagaMiddleware();
 
 export const sagaRunner = () => {
-    sagaMiddleware.run(fetchConfigurationSaga);
-    sagaMiddleware.run(fetchPackagesSaga);
+    sagaMiddleware.run(fetchHighScores);
 };

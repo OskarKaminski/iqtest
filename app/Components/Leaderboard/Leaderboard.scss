@@ -1,0 +1,9 @@
+.leaderboard {
+  &__table{
+    border-spacing: 0;
+  }
+  &__cell {
+    border-bottom: 1px solid;
+    padding: 5px 30px;
+  }
+}

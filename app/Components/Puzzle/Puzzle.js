@@ -1,9 +1,6 @@
 import React, {PropTypes} from 'react'
-import {connect} from 'react-redux'
-import {nextTestCase, setAnswer} from 'Actions'
 import './Puzzle.scss'
 
-@connect(undefined, {nextTestCase, setAnswer})
 export class Puzzle extends React.Component{
     constructor (props){
         super(props)

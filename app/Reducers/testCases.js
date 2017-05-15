@@ -23,8 +23,10 @@ export const testCases = (state = [], action) => {
 
 export const currentTestCase = (state = 1, action) => {
     switch (action.type) {
+        case 'PREVIOUS':
+            return state !== action.limit ? state - 1 : state
         case 'NEXT':
-            return ++state
+            return state !== action.limit ? state + 1 : state
     }
     return state;
 }
