@@ -14,7 +14,7 @@ const mapStateToProps = ({testCases, currentTestCase}) =>
 
 @connect(mapStateToProps, {setTestCases})
 class App extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
     }
 
@@ -22,26 +22,24 @@ class App extends React.Component {
         this.props.setTestCases(testCases);
     }
 
-    renderTestCase = (testCases) => {
-        if (!this.props.testCases[0]){
+    render = () => {
+        if (!this.props.testCases[0]) {
             return <Intro startTest={this.setTestCases}/>
         }
-        if (this.props.currentTestCase > this.props.testCases.length){
+        if (this.props.currentTestCase > this.props.testCases.length) {
             return <Summary/>
         }
         if (this.props.testCases[0]) {
-            return <ThreeTestsHolder tests={testCases}
-                              current={this.props.currentTestCase}/>
+            return (
+                <div>
+                    <Progress questionNo={this.props.currentTestCase}
+                              questionsQty={this.props.testCases.length}/>
+                    <ThreeTestsHolder tests={this.props.testCases}
+                                      current={this.props.currentTestCase}/>
+                </div>
+            )
         }
     }
-
-    render = () => (
-        <div>
-            <Progress questionNo={this.props.currentTestCase}
-                      questionsQty={this.props.testCases.length}/>
-            {this.renderTestCase(this.props.testCases)}
-        </div>
-    )
 }
 
 export const AppContainer = () => (
