@@ -2,7 +2,7 @@ import React from 'react'
 import {Provider, connect} from 'react-redux';
 import {store} from './store';
 import testCases from './testCases';
-import {setTestCases, fetchHighScores, restartTimer} from './Actions/actions'
+import {setTestCases, fetchHighScores, restartTimer, decrementTime} from './Actions/actions'
 import {TestCase} from 'C/TestCase/TestCase'
 import {Progress} from 'C/Progress/Progress'
 import {ThreeTestsHolder} from 'C/ThreeTestsHolder/ThreeTestsHolder'
@@ -14,7 +14,7 @@ import {Timer} from './Components/Timer/timer'
 const mapStateToProps = ({testCases, currentTestCase, time}) =>
     ({testCases, currentTestCase,time});
 
-@connect(mapStateToProps, {setTestCases, fetchHighScores, restartTimer})
+@connect(mapStateToProps, {setTestCases, fetchHighScores, restartTimer, decrementTime})
 class App extends React.Component {
     constructor (props) {
         super(props);
@@ -36,7 +36,10 @@ class App extends React.Component {
         if (this.props.currentTestCase > this.props.testCases.length) {
             return <Summary/>
         }
+
+
         if (this.props.testCases[0]) {
+            setTimeout(this.props.decrementTime, 1000)    
             return (
                 <div>
                     <Timer time={this.props.time}/>

@@ -25,3 +25,6 @@ export const setHighScores = (highScores) => ({
 export const fetchHighScores = () => ({
     type: 'FETCH_HIGH_SCORES'
 })
+export const decrementTime = () => ({
+  type: 'DECREMENT_TIME'
+})
