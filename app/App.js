@@ -2,7 +2,7 @@ import React from 'react'
 import {Provider, connect} from 'react-redux';
 import {store} from './store';
 import testCases from './testCases';
-import {setTestCases, fetchHighScores} from './Actions/actions'
+import {setTestCases, fetchHighScores, restartTimer} from './Actions/actions'
 import {TestCase} from 'C/TestCase/TestCase'
 import {Progress} from 'C/Progress/Progress'
 import {ThreeTestsHolder} from 'C/ThreeTestsHolder/ThreeTestsHolder'
@@ -13,7 +13,7 @@ import {getTestCases} from './API/api'
 const mapStateToProps = ({testCases, currentTestCase}) =>
     ({testCases, currentTestCase});
 
-@connect(mapStateToProps, {setTestCases, fetchHighScores})
+@connect(mapStateToProps, {setTestCases, fetchHighScores, restartTimer})
 class App extends React.Component {
     constructor (props) {
         super(props);
@@ -23,13 +23,14 @@ class App extends React.Component {
         this.props.fetchHighScores();
     }
 
-    setTestCases = () => {
+    onStartTest = () => {
+        this.props.restartTimer();
         this.props.setTestCases(testCases);
-        getTestCases()
+        getTestCases();
     }
     render = () => {
         if (!this.props.testCases[0]) {
-            return <Intro startTest={this.setTestCases}/>
+            return <Intro startTest={this.onStartTest}/>
         }
         if (this.props.currentTestCase > this.props.testCases.length) {
             return <Summary/>

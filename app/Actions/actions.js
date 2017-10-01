@@ -1,6 +1,9 @@
 export const setTestCases = (payload) => ({
-    type: 'SET_TEST_CASES',
-    payload
+  type: 'SET_TEST_CASES',
+  payload
+})
+export const restartTimer = () => ({
+  type: 'RESTART_TIMER'
 })
 export const previousTestCase = (limit) => ({
     type: 'PREVIOUS',
