@@ -9,9 +9,10 @@ import {ThreeTestsHolder} from 'C/ThreeTestsHolder/ThreeTestsHolder'
 import {Intro} from 'C/Intro/Intro'
 import {Summary} from 'C/Summary/Summary'
 import {getTestCases} from './API/api'
+import {Timer} from './Components/Timer/timer'
 
-const mapStateToProps = ({testCases, currentTestCase}) =>
-    ({testCases, currentTestCase});
+const mapStateToProps = ({testCases, currentTestCase, time}) =>
+    ({testCases, currentTestCase,time});
 
 @connect(mapStateToProps, {setTestCases, fetchHighScores, restartTimer})
 class App extends React.Component {
@@ -38,6 +39,7 @@ class App extends React.Component {
         if (this.props.testCases[0]) {
             return (
                 <div>
+                    <Timer time={this.props.time}/>
                     <Progress questionNo={this.props.currentTestCase}
                               questionsQty={this.props.testCases.length}/>
                     <ThreeTestsHolder tests={this.props.testCases}
